@@ -1,14 +1,12 @@
 from flask import Flask
+import os
 
 app = Flask(__name__)
 
 @app.route("/")
 def home():
-    return """
-    <h1>🦉 BaykusAI</h1>
-    <h2>İlk web sitem çalışıyor!</h2>
-    <p>Merhaba Bilal 😄</p>
-    """
+    return "🦉 BaykusAI çalışıyor!"
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
